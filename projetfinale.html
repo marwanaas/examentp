@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+    <title>Catalogue des PFEs</title>
+        <link href="bootstrap/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <script>
+        
+        
+        var xhr = new XMLHttpRequest();
+        var connect = "vide";
+
+    function charge() {
+
+
+    xhr.open('GET','https://appessat707.000webhostapp.com/pfes.php', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            afficher(xhr.responseXML)
+        }
+    }
+
+  }
+    function afficher(x) {
+
+            var tbody = document.querySelector('tbody');
+   
+            var els = x.getElementsByTagName('pfe');
+            tbody.innerHTML = ""
+            for (var i = 0; i < els.length; i++) {
+                var tr = document.createElement('tr');
+                var td1= document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3= document.createElement('td');
+
+                var c1=document.createTextNode(els[i].getAttribute('id'));
+                var c2=document.createTextNode(els[i].getAttribute('titre'));
+                var c3=document.createTextNode(els[i].getAttribute('type'));
+                td1.appendChild(c1);
+                td2.appendChild(c2);
+                td3.appendChild(c3);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+
+                tbody.appendChild(tr);
+            }
+        }
+           
+
+
+
+
+        function PFEstélécom() {
+
+            xhr.open('GET','https://appessat707.000webhostapp.com/pfespartypes.php?type=Telecom ', true);
+            xhr.send();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    afficher(xhr.responseXML)
+                }
+            }
+        }
+
+        function  PFEsdevelopement() {
+
+      xhr.open('GET','https://appessat707.000webhostapp.com/pfespartypes.php?type=Developpement', true);
+       xhr.send();
+      xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        afficher(xhr.responseXML)
+    }
+}
+}
+
+        function PFEsreseaux() {
+
+        xhr.open('GET','https://appessat707.000webhostapp.com/pfespartypes.php?type=reseaux ', true);
+           xhr.send();
+         xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+        afficher(xhr.responseXML)
+    }
+}
+}
+       function PFEsembarqueIOT() {
+
+      xhr.open('GET','https://appessat707.000webhostapp.com/pfespartypes.php?type=Embarques et IoT ', true);
+       xhr.send();
+       xhr.onreadystatechange = function() {
+       if (xhr.readyState == 4 && xhr.status == 200) {
+        afficher(xhr.responseXML)
+    }
+}
+       }
+    </script>
+
+    <body onload="charge()">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col ">
+                    <div class=" card card-header bg-primary text-white ">
+                        <h1> Catalogue des PFEs (ESSAT)</h1>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-3  mt-2">
+    
+                    <div class="list-group">
+    
+                        <li class="list-group-item list-group-item-action active  ">
+                            <a href="#" class="btn   " onclick="charge()"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grid-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
+                                  </svg> Tous les PFEs </a> <span class="badge badge-warning badge-pill">13</span>
+                        </li>
+    
+                        <li class="list-group-item list-group-item-action  ">
+                            <a href="#" class="btn  " onclick="PFEstélécom()"> <svg width="1em" height="1em " viewBox="0 0 16 16 " class="bi bi-grid-fill " fill="currentColor
+                                    " xmlns="http://www.w3.org/2000/svg ">
+                             <path fill-rule="evenodd " d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8
+                                    8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z "/>
+                            </svg> PFEs Télécom</a><span class="badge badge-primary badge-pill">3</span>
+                        </li>
+    
+                        <li class="list-group-item list-group-item-action "> <a href="# " class="btn " onclick="PFEsdevelopement() "><svg width="1em " height="1em " viewBox="0 0 16 16 " class="bi bi-grid-fill " fill="currentColor
+                                " xmlns="http://www.w3.org/2000/svg ">
+                         <path fill-rule="evenodd " d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8
+                                8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z "/>
+                        </svg> PFEs Developement </a><span class="badge badge-primary badge-pill">4</span>
+                        </li>
+                        <li class="list-group-item list-group-item-action ">
+                            <a href="# " class="btn " onclick="PFEsreseaux()"> <svg width="1em " height="1em " viewBox="0 0 16 16 " class="bi bi-grid-fill " fill="currentColor " xmlns="http://www.w3.org/2000/svg ">
+                                    <path fill-rule="evenodd " d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9
+                                    5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z "/>
+                                  </svg> PFEs Reseaux </a> <span class="badge badge-primary badge-pill">3</span>
+                        </li>
+                        <li class="list-group-item list-group-item-action ">
+                            <a href="# " class="btn " onclick="PFEsembarqueIOT()"> <svg width="1em " height="1em " viewBox="0 0 16 16 " class="bi bi-grid-fill " fill="currentColor " xmlns="http://www.w3.org/2000/svg ">
+                                    <path fill-rule="evenodd " d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9
+                                    5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z "/>
+                                  </svg> PFEs Embarque et IOT </a><span class="badge badge-primary badge-pill">4</span>
+    
+                        </li>
+                    </div>
+    
+    
+                </div>
+                <div class="col mt-2">
+                    <div class="card ">
+    
+                        <table id="tab ">
+                            <div class="col card-card header ">
+                                <thead>
+                                    <tr class="bg-success text-white ">
+                                        <th colspan="3 ">
+                                            <h4 class="bg-success text-white">Liste des PFEs</h4>
+                                        </th>
+                                    </tr>
+    
+    
+                                    <tr class="bg-light"><th>Id</th> <th>Titre</th><th>Type</th> </tr>
+                                       
+                            </div>
+                            </thead>
+    
+    
+    
+    
+    
+                    </div>
+                    <tbody >
+    
+                    </tbody>
+                    </table>
+    
+    
+    
+                </div>
+    
+            </div>
+        </div>
+    </body>
+    
+    </html>
